@@ -7,5 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "ginza>=5.2.0",
     "ja-ginza>=5.2.0",
+    "matplotlib>=3.10.7",
     "spacy>=3.8.11",
 ]
