@@ -1,4 +1,5 @@
 import spacy
+import csv
 
 # モデルの読み込み
 nlp = spacy.load('ja_ginza')
@@ -14,15 +15,17 @@ text = """
 
 doc = nlp(text)
 
-# 動詞の基本形（辞書形）のみをリストに抽出
-# token.text ではなく token.lemma_ を使うことで「した」→「する」のように正規化されます
-verbs = [token.lemma_ for token in doc if token.pos_ == "VERB"]
-
 # ファイルに書き込み（動詞のみ）
-output_file = 'verbs_only.txt'
-with open(output_file, 'w', encoding='utf-8') as f:
-    # リストの中身を改行で結合して書き込む
-    f.write('\n'.join(verbs))
+output_file = 'verbs_list.csv'
 
-print(f"抽出完了: {output_file} に動詞のみを保存しました。")
-print(f"抽出された動詞: {verbs}")
+with open(output_file, 'w', newline='', encoding='utf-8') as f:
+    writer = csv.writer(f)
+
+    writer.writerow(['元の単語', '基本形'])
+
+    for token in doc:
+        if token.pos_ == 'VERB':
+            writer.writerow([token.text, token.lemma_])
+
+print(f'保存完了： {output_file}')    
+
