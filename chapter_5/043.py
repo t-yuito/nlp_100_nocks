@@ -5,13 +5,14 @@ import google.generativeai as genai
 from datasets import load_dataset
 from tqdm import tqdm
 import time
+import random
 
 # ---------------------------------------------------------
 # 設定
 # ---------------------------------------------------------
 TASK_NAME = "machine_learning"
-FILE_NAME = "answer_history_042.txt"
-LIMIT_NUM = 10
+FILE_NAME = "answer_history_043.txt" # ファイル名変更
+LIMIT_NUM = 10  # 必要に応じて増やしてください
 
 # ---------------------------------------------------------
 # 準備
@@ -37,13 +38,41 @@ except Exception as e:
 if LIMIT_NUM is not None:
     dataset = dataset.select(range(LIMIT_NUM))
 
-def format_prompt(record):
+# ---------------------------------------------------------
+# 実験用プロンプト作成関数 (正解をDに固定する版)
+# ---------------------------------------------------------
+def create_biased_prompt(record):
     question = record['question']
-    options = [record['A'], record['B'], record['C'], record['D']]
-
+    
+    # 1. 元の正解記号と選択肢を取得
+    original_answer_char = record['answer'].strip().upper() # 例: "A"
+    original_options = {
+        "A": record['A'],
+        "B": record['B'],
+        "C": record['C'],
+        "D": record['D']
+    }
+    
+    # 2. 正解の選択肢の「文章」を取得
+    correct_content = original_options[original_answer_char]
+    
+    # 3. 不正解（ハズレ）の選択肢の「文章」をリスト化
+    distractors = []
+    for char, content in original_options.items():
+        if char != original_answer_char:
+            distractors.append(content)
+            
+    # 4. 新しい選択肢リストを作成
+    # 【実験設定】 ハズレ3つを先に並べ、最後に正解(correct_content)を置く
+    # これにより、正解は必ず4番目になる
+    new_options_list = distractors + [correct_content]
+    
+    # 5. プロンプト用の文字列を作成
     option_str = ""
-    chars = ["A", "B", "C", "D"]
-    for i, opt in enumerate(options):
+    chars = ["A", "B", "C", "D"] # 新しい記号の割り当て
+    
+    # new_options_listの 0,1,2番目はハズレ、3番目(D)が正解
+    for i, opt in enumerate(new_options_list):
         option_str += f"{chars[i]}. {opt}\n"
 
     prompt = f"""以下は{TASK_NAME}に関する多肢選択問題です。
@@ -56,7 +85,9 @@ def format_prompt(record):
 {option_str}
 
 答え:"""
-    return prompt
+    
+    # 新しい正解は常に "D" (リストの最後に追加したため)
+    return prompt, "D"
 
 # ---------------------------------------------------------
 # 推論ループ
@@ -65,15 +96,13 @@ correct_count = 0
 total_count = len(dataset)
 results_log = []
 
-print(f"全 {total_count} 問の推論を開始します...")
+print(f"全 {total_count} 問の推論を開始します (正解を全てDに固定)...")
 
 for i, record in tqdm(enumerate(dataset), total=total_count):
-    prompt = format_prompt(record)
-
-    # --- 【ここを修正しました！】 ---
-    # CSVの 'answer' 列の値をそのまま正解文字として使います
-    correct_char = record['answer'].strip().upper()
     
+    # ここで「正解をDにする」処理を通したプロンプトと正解を受け取る
+    prompt, target_char = create_biased_prompt(record)
+
     try:
         response = model.generate_content(prompt)
         pred_text = response.text.strip()
@@ -88,14 +117,16 @@ for i, record in tqdm(enumerate(dataset), total=total_count):
         else:
             pred_char = "不明"
         
-        is_correct = (pred_char == correct_char)
+        # 正解は常に "D" と比較する
+        is_correct = (pred_char == target_char)
+        
         if is_correct:
             correct_count += 1
 
         results_log.append({
-            "id": i,          # IDも i (ループ変数) に修正済み
+            "id": i,
             "prediction": pred_char,
-            "answer": correct_char,
+            "answer": target_char, # ここは全部Dになるはず
             "correct": is_correct,
             "question_short": record['question'][:30] + "..."
         })
@@ -112,6 +143,7 @@ accuracy = (correct_count / total_count) * 100
 
 output_content = ""
 output_content += "="*40 + "\n"
+output_content += f"実験: 正解を全て「D」に入れ替え\n"
 output_content += f"科目: {TASK_NAME}\n"
 output_content += f"問題数: {total_count}\n"
 output_content += f"正解数: {correct_count}\n"
