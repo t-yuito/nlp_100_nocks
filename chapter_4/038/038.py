@@ -31,11 +31,11 @@ with gzip.open(input_file, 'rt', encoding='utf-8') as f:
             title = data.get('title', '')
             text = remove_markup(data.get('text', ''))
 
-            current_doc_nouns = set()
+            current_doc_nouns = set() # どのくらいの文章頻度でその単語が出てくるかというDFを計算するため。重複を許さない集合set()
 
             is_japan = (title == '日本')
 
-            for sentence in text.split('\n'):
+            for sentence in text.split('\n'): # これにはtitleとtextが両方含まれている。
                 if not sentence.strip():
                     continue
 
@@ -48,12 +48,12 @@ with gzip.open(input_file, 'rt', encoding='utf-8') as f:
                         if token.pos_ in ['NOUN', 'PROPN'] and token.text not in stop_words
                     ]
 
-                    current_doc_nouns.update(noun_tokens)
+                    current_doc_nouns.update(noun_tokens) # DF計算用。DF = その単語が幾つの文書に含まれるか。
 
                     if is_japan:
-                        japan_word_count.update(noun_tokens)
+                        japan_word_count.update(noun_tokens) # 日本語なら、tf計算用に単語数を記憶
 
-            df_counter.update(current_doc_nouns)
+            df_counter.update(current_doc_nouns) # 一記事読み終わるごとに、DFカウンターを更新
             total_docs += 1
         
         except json.JSONDecodeError:
@@ -62,7 +62,7 @@ with gzip.open(input_file, 'rt', encoding='utf-8') as f:
 tfidf_scores = []
 
 
-total_terms_in_japan = sum(japan_word_count.values())
+total_terms_in_japan = sum(japan_word_count.values()) #全単語の出現回数を足す
 
 for word, count in japan_word_count.items():
     tf = count / total_terms_in_japan
