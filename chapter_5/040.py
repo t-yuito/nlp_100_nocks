@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai
+import pathlib
 
 load_dotenv()
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
@@ -20,4 +21,16 @@ prompt = """
 
 response = gemini.generate_content(prompt)
 print(response.text)
+
+OUTPUT_DIR = pathlib.Path("out")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+FILE_NAME = "answer_history_040.txt"
+output_path = OUTPUT_DIR / FILE_NAME
+
+try:
+    with open(output_path, "w", encoding='utf-8') as f:
+        f.write(response.text)
+except Exception as e:
+    print(f"エラーが発生しました:{e}")
 
