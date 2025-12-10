@@ -1,0 +1,15 @@
+result
+[Cluster 0]
+Iran, Nepal, Azerbaijan, Syria, Turkmenistan, Tajikistan, Bangladesh, Iraq, Kyrgyzstan, Uzbekistan, Bhutan, Pakistan, Armenia, Afghanistan, Kazakhstan
+
+[Cluster 1]
+Ukraine, Slovakia, Slovenia, Serbia, Latvia, Croatia, Poland, Macedonia, Russia, Turkey, Lithuania, Romania, Montenegro, Greece, Bulgaria, Moldova, Estonia, Albania, Cyprus, Hungary, Georgia, Malta, Belarus
+
+[Cluster 2]
+Dominica, Suriname, Thailand, Cuba, Philippines, Bahamas, Ecuador, Nicaragua, China, Uruguay, Vietnam, Fiji, Taiwan, Peru, Belize, Samoa, Laos, Venezuela, Honduras, Tuvalu, Guyana, Jamaica, Indonesia, Chile
+
+[Cluster 3]
+Lebanon, Gabon, Niger, Tunisia, Guinea, Egypt, Angola, Madagascar, Botswana, Gambia, Zimbabwe, Libya, Sudan, Algeria, Kenya, Liberia, Nigeria, Mauritania, Ghana, Namibia, Zambia, Uganda, Eritrea, Burundi, Malawi, Rwanda, Senegal, Mozambique, Mali, Somalia
+
+[Cluster 4]
+Morocco, Oman, Spain, Norway, Finland, Switzerland, Portugal, Austria, Belgium, Japan, Ireland, Jordan, Qatar, Australia, Bahrain, Sweden, France, Liechtenstein, Denmark, England, Italy, Germany, Greenland, Canada

@@ -1,0 +1,4 @@
+result
+Number of pairs calculated: 353 (Total: 353)
+Spearman Correlation: 0.7000
+P-value: 2.8687e-53
