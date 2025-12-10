@@ -1,0 +1,4 @@
+処理を開始します。
+------------------------------
+Target: United_States, U.S.
+Cosine Similarity: 0.7311
