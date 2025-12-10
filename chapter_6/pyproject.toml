@@ -5,7 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "cluster>=1.4.1.post3",
     "gensim>=4.4.0",
+    "matplotlib>=3.10.7",
     "pandas>=2.3.3",
+    "scikit-learn>=1.8.0",
     "tqdm>=4.67.1",
 ]
