@@ -14,3 +14,5 @@ with open(output_path, 'w', encoding='utf-8') as f:
         f.write(f'{word}\t{similarity:.4f}\n')
 
 print('結果を保存しました。')
+
+#pprintという関数を使うと、綺麗に出力してくれる。

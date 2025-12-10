@@ -8,8 +8,6 @@ def main():
     output_file = 'result_log_54.txt'
     target_section = ': capital-common-countries'
 
-    # download_data(data_file)  # 必要に応じて関数を定義するか削除
-
     model = KeyedVectors.load_word2vec_format(model_path, binary=True)
 
     os.makedirs(output_dir, exist_ok=True)
@@ -21,7 +19,7 @@ def main():
     with open(data_file, 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
-            if line.startswith(':'):
+            if line.startswith(':'): #':'で始まっているかどうか
                 if line == target_section:  
                     is_target_section = True
                     print(f"セクション{target_section}の処理を開始します。")
