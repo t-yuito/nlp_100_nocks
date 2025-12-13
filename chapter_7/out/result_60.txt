@@ -1,0 +1,10 @@
+学習データの集計label
+1    37569
+0    29780
+Name: count, dtype: int64
+
+検証データの集計label
+1    444
+0    428
+Name: count, dtype: int64
+
