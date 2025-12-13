@@ -24,7 +24,7 @@ def show_conditional_probability(model_path, vectorizer_path, data_path, output_
     X = vectorizer.transform([feature_dict])
     
     # 4. 条件付き確率の計算 (predict_proba)
-    # 戻り値は [[P(Y=0), P(Y=1)]] の形になっています
+    # 戻り値は [[P(Y=0), P(Y=1)]] の形になっているから、[]を一つのけたい。
     probs = model.predict_proba(X)[0]
     
     prob_neg = probs[0]  # ラベル0 (ネガティブ) の確率
