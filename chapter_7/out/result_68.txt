@@ -1,0 +1,49 @@
+--- 68. 特徴量の重みの確認 ---
+
+【重みが高い特徴量 (ポジティブ寄り) Top 20】
+       word   weight
+ remarkable 3.445163
+ refreshing 3.440158
+   powerful 3.225141
+  hilarious 3.194917
+  beautiful 3.011358
+  wonderful 2.981674
+      prose 2.927243
+   terrific 2.886777
+  appealing 2.868132
+  enjoyable 2.817972
+      treat 2.809984
+    charmer 2.758819
+    vividly 2.716859
+    likable 2.690171
+      solid 2.675960
+   charming 2.642474
+   half-bad 2.613821
+ impressive 2.605151
+fascinating 2.599655
+ intriguing 2.571522
+
+========================================
+
+【重みが低い特徴量 (ネガティブ寄り) Top 20】
+         word    weight
+      lacking -4.344855
+        lacks -4.075635
+        worst -3.996125
+       devoid -3.664133
+         mess -3.642415
+      failure -3.594820
+       stupid -3.367856
+         bore -3.263411
+         flat -3.245755
+   depressing -3.223922
+        loses -3.179246
+        waste -3.160973
+         lack -3.060029
+    squanders -3.035503
+       hardly -3.032253
+         none -3.016804
+         poor -2.990552
+    pointless -2.976361
+unfortunately -2.947484
+        lousy -2.937123
