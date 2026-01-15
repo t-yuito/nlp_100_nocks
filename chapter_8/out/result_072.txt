@@ -1,0 +1,11 @@
+--- SentimentClassifier Model ---
+モデルアーキテクチャ:
+SentimentClassifier(
+  (embedding): Embedding(300001, 300, padding_idx=0)
+  (fc): Linear(in_features=300, out_features=1, bias=True)
+)
+
+--- パラメータ情報 ---
+Embedding層の語彙数: 300001
+Embedding次元数: 300
+全パラメータ数: 90000601

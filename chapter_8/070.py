@@ -22,9 +22,26 @@ def load_word_embeddings(model_path, limit=None):
 
     return embedding_matrix, word_to_id, id_to_word
 
-model_path = '/home/takeuchi/workspace/nlp_100_nocks/chapter_8/GoogleNews-vectors-negative300.bin.gz'
-E, w2id, id2w = load_word_embeddings(model_path, limit=100000)
 
-print(f"行列の形状: {E.shape}")
-print(f"ID 0 のベクトル (PAD): {E[0][:5]}...")
-print(f"ID 1 の単語: {id2w[1]}")
+if __name__ == "__main__":
+    import os
+    
+    model_path = '/home/takeuchi/workspace/nlp_100_nocks/chapter_8/GoogleNews-vectors-negative300.bin.gz'
+    E, w2id, id2w = load_word_embeddings(model_path, limit=100000)
+
+    output_dir = '/home/takeuchi/workspace/nlp_100_nocks/chapter_8/out'
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, 'result_070.txt')
+
+    results = [
+        f"行列の形状: {E.shape}",
+        f"ID 0 のベクトル (PAD): {E[0][:5]}...",
+        f"ID 1 の単語: {id2w[1]}"
+    ]
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        for line in results:
+            print(line)
+            f.write(line + '\n')
+    
+    print(f"\n結果を保存しました: {output_file}")
