@@ -1,0 +1,14 @@
+学習を開始します。
+
+Epoch [1/10], Loss: 0.6117
+Epoch [2/10], Loss: 0.5332
+Epoch [3/10], Loss: 0.4966
+Epoch [4/10], Loss: 0.4732
+Epoch [5/10], Loss: 0.4585
+Epoch [6/10], Loss: 0.4482
+Epoch [7/10], Loss: 0.4404
+Epoch [8/10], Loss: 0.4345
+Epoch [9/10], Loss: 0.4291
+Epoch [10/10], Loss: 0.4243
+
+学習完了
