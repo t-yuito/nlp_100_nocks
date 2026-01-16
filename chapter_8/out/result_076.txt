@@ -1,0 +1,20 @@
+=== 76. ミニバッチ学習（問題75のcollate_fn使用） ===
+
+Batch Size: 32
+Learning Rate: 0.5
+Num Epochs: 10
+
+Epoch [1/10], Loss: 0.6120
+Epoch [2/10], Loss: 0.5337
+Epoch [3/10], Loss: 0.4966
+Epoch [4/10], Loss: 0.4739
+Epoch [5/10], Loss: 0.4588
+Epoch [6/10], Loss: 0.4480
+Epoch [7/10], Loss: 0.4402
+Epoch [8/10], Loss: 0.4335
+Epoch [9/10], Loss: 0.4291
+Epoch [10/10], Loss: 0.4251
+
+=== 開発セットにおける正解率 ===
+
+開発セット正解率: 0.7878 (687/872)
