@@ -1,0 +1,22 @@
+=== 77. GPU上でのミニバッチ学習 ===
+
+デバイス: cuda
+GPU名: NVIDIA TITAN RTX
+Batch Size: 32
+Learning Rate: 0.5
+Num Epochs: 10
+
+Epoch [1/10], Loss: 0.6119
+Epoch [2/10], Loss: 0.5340
+Epoch [3/10], Loss: 0.4958
+Epoch [4/10], Loss: 0.4739
+Epoch [5/10], Loss: 0.4590
+Epoch [6/10], Loss: 0.4483
+Epoch [7/10], Loss: 0.4398
+Epoch [8/10], Loss: 0.4343
+Epoch [9/10], Loss: 0.4292
+Epoch [10/10], Loss: 0.4251
+
+=== 開発セットにおける正解率 ===
+
+開発セット正解率: 0.7844 (684/872)
