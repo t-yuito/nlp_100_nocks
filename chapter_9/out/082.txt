@@ -1,0 +1,12 @@
+Sentence: The movie was full of [MASK].
+------------------------------
+ 1: surprises       (Score: 0.0413)
+ 2: music           (Score: 0.0317)
+ 3: shit            (Score: 0.0295)
+ 4: people          (Score: 0.0250)
+ 5: fun             (Score: 0.0233)
+ 6: it              (Score: 0.0218)
+ 7: laughs          (Score: 0.0210)
+ 8: laughter        (Score: 0.0204)
+ 9: them            (Score: 0.0190)
+10: crap            (Score: 0.0177)
