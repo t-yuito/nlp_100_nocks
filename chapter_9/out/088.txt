@@ -1,0 +1,8 @@
+Model Status: Ready for prediction
+Sentence                                           | Prediction | Confidence
+--------------------------------------------------------------------------------
+The movie was full of incomprehensibilities.       | Negative   | 0.9997
+The movie was full of fun.                         | Positive   | 0.9999
+The movie was full of excitement.                  | Positive   | 0.9998
+The movie was full of crap.                        | Negative   | 0.9995
+The movie was full of rubbish.                     | Negative   | 0.9998

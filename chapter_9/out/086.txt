@@ -1,0 +1,7 @@
+--- Mini-batch Info ---
+Shape of input_ids: torch.Size([4, 15])
+
+Sentence 0: ['[CLS]', 'hide', 'new', 'secret', '##ions', 'from', 'the', 'parental', 'units', '[SEP]', '[PAD]', '[PAD]', '[PAD]', '[PAD]', '[PAD]']
+Sentence 1: ['[CLS]', 'contains', 'no', 'wit', ',', 'only', 'labor', '##ed', 'gag', '##s', '[SEP]', '[PAD]', '[PAD]', '[PAD]', '[PAD]']
+Sentence 2: ['[CLS]', 'that', 'loves', 'its', 'characters', 'and', 'communicate', '##s', 'something', 'rather', 'beautiful', 'about', 'human', 'nature', '[SEP]']
+Sentence 3: ['[CLS]', 'remains', 'utterly', 'satisfied', 'to', 'remain', 'the', 'same', 'throughout', '[SEP]', '[PAD]', '[PAD]', '[PAD]', '[PAD]', '[PAD]']
