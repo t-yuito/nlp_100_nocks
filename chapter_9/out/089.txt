@@ -1,0 +1,1 @@
+Validation Accuracy (Max Pooling): 0.9106
