@@ -1,0 +1,10 @@
+--- train set (first 3 examples) ---
+Label: 0 | Tokens: ['hide', 'new', 'secret', '##ions', 'from', 'the', 'parental', 'units']
+Label: 0 | Tokens: ['contains', 'no', 'wit', ',', 'only', 'labor', '##ed', 'gag', '##s']
+Label: 1 | Tokens: ['that', 'loves', 'its', 'characters', 'and', 'communicate', '##s', 'something', 'rather', 'beautiful', 'about', 'human', 'nature']
+
+--- validation set (first 3 examples) ---
+Label: 1 | Tokens: ['it', "'", 's', 'a', 'charming', 'and', 'often', 'affecting', 'journey', '.']
+Label: 0 | Tokens: ['un', '##f', '##lin', '##ching', '##ly', 'bleak', 'and', 'desperate']
+Label: 1 | Tokens: ['allows', 'us', 'to', 'hope', 'that', 'no', '##lan', 'is', 'poised', 'to', 'em', '##bark', 'a', 'major', 'career', 'as', 'a', 'commercial', 'yet', 'in', '##vent', '##ive', 'filmmaker', '.']
+
